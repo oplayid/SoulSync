@@ -62,8 +62,8 @@ jobs:
           push: true
           # Membangun untuk 2 platform sekaligus sesuai dengan kebutuhan Dockerfile Anda
           platforms: linux/amd64,linux/arm64
-          tags: ${{ id.meta.outputs.tags }}
-          labels: ${{ id.meta.outputs.labels }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
           # Menyuplai COMMIT_SHA ke build-args untuk melakukan cache-busting pada layer yt-dlp nightly
           build-args: |
             COMMIT_SHA=${{ github.sha }}
